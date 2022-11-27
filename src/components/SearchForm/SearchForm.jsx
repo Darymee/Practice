@@ -7,16 +7,11 @@ import { useLocalStorage } from 'hooks';
 
 import { FiSearch } from 'react-icons/fi';
 import { FormBtn, InputSearch, SearchFormStyled } from './SearchForm.styled';
-import { useEffect } from 'react';
 
 export const SearchForm = () => {
   const [value, setValue] = useLocalStorage('search', '');
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    setValue('');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const dispatch = useDispatch();
 
   const handleInput = ({ target }) => setValue(target.value.trim());
 

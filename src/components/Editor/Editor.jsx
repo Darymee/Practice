@@ -1,18 +1,13 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editTodoAction } from 'redux/todosSlice';
 
 import { RiCloseFill, RiCheckFill } from 'react-icons/ri';
 
-import { useLocalStorage } from 'hooks';
-
 export const Editor = ({ text, id, onClose }) => {
-  const [value, setValue] = useLocalStorage('search', '');
-  const dispatch = useDispatch();
+  const [value, setValue] = useState(text);
 
-  useEffect(() => {
-    setValue(text);
-  }, [setValue, text]);
+  const dispatch = useDispatch();
 
   function handlerChange({ target }) {
     setValue(target.value);
@@ -28,7 +23,6 @@ export const Editor = ({ text, id, onClose }) => {
       })
     );
 
-    setValue('');
     onClose();
   };
 

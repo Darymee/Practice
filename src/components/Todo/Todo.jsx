@@ -17,7 +17,9 @@ export const Todo = ({ text, counter, id }) => {
   };
 
   const dispatch = useDispatch();
+
   const handlerDeleteTodo = () => dispatch(deleteTodoAction(id));
+
   return (
     <>
       <TodoWrapper>
