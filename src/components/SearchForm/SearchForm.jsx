@@ -15,6 +15,7 @@ export const SearchForm = () => {
 
   useEffect(() => {
     setValue('');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleInput = ({ target }) => setValue(target.value.trim());
